@@ -1,17 +1,16 @@
-<!-- https://valor-software.com/ng2-charts/ -->
 <div class="row">
   <div class="col-6">
-    <div class="card">
-      <div class="card-body">
-        <h3>Sales</h3>
-        <canvas
-          baseChart
-          class="chart"
-          [data]="doughnutChartData"
-          [type]="doughnutChartType"
-        >
-        </canvas>
-      </div>
-    </div>
+    <app-doughnut title="Sales" [data]="data1" [labels]="labels1"></app-doughnut>
+  </div>
+  <div class="col-6">
+    <app-doughnut title="Offers"></app-doughnut>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <app-doughnut title="Purchases"></app-doughnut>
+  </div>
+  <div class="col-6">
+    <app-doughnut></app-doughnut>
   </div>
 </div>
