@@ -1,1 +1,17 @@
-<p>graphic1 works!</p>
+<!-- https://valor-software.com/ng2-charts/ -->
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h3>Sales</h3>
+        <canvas
+          baseChart
+          class="chart"
+          [data]="doughnutChartData"
+          [type]="doughnutChartType"
+        >
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
