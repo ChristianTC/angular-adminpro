@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   ]
 })
 export class PagesComponent {
+  public linkTheme = document.querySelector('#theme')
+  ngOnInit(): void {
+    const url = localStorage.getItem('theme') || ''
+    this.linkTheme?.setAttribute('href', url)
+  }
 
 }
