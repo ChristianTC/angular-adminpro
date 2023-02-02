@@ -8,6 +8,10 @@
     type="number"
     class="form-control"
     placeholder="Progress"
+    min="0"
+    max="100"
+    [ngClass]="{'is-invalid': progress > 100 || progress < 0}"
+    (ngModelChange)="onChange( $event )"
     [(ngModel)]="progress"
   />
   <span class="input-group-btn">
