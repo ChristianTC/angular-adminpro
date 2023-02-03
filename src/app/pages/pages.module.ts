@@ -10,6 +10,7 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from "../components/components.module";
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
 
 
 
@@ -20,6 +21,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         Graphic1Component,
         PagesComponent,
         AccountSettingsComponent,
+        PromisesComponent,
     ],
     exports: [
         DashboardComponent,
@@ -27,6 +29,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         Graphic1Component,
         PagesComponent,
         AccountSettingsComponent,
+        PromisesComponent,
     ],
     imports: [
         CommonModule,
