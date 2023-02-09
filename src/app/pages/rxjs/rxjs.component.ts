@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, interval } from 'rxjs';
+import { Observable, interval, Subscription } from 'rxjs';
 import { retry, take, map, filter } from 'rxjs/operators';
 
 @Component({
@@ -10,6 +10,8 @@ import { retry, take, map, filter } from 'rxjs/operators';
 })
 export class RxjsComponent {
 
+  public intervalSubs: Subscription
+
   constructor() {
     // this.returnObservable().pipe(
     //   retry(1)
@@ -19,13 +21,17 @@ export class RxjsComponent {
     //   complete: () => console.log('Obs completed')
     // })
 
-    this.returnInterval().subscribe(console.log)
+    this.intervalSubs = this.returnInterval().subscribe(console.log)
 
+  }
+
+  ngOnDestroy(): void {
+    this.intervalSubs.unsubscribe()
   }
 
   returnInterval(): Observable<Number> {
     return interval(200).pipe(
-      take(10),
+      // take(10),
       map( value => value+1),
       filter( value => value%2===0),
     )
