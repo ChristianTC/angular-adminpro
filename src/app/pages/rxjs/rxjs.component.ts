@@ -11,24 +11,7 @@ import { retry } from 'rxjs/operators';
 export class RxjsComponent {
 
   constructor() {
-    
-    const obs$ = new Observable( observer => {
-      let num = 0
-      const interval = setInterval(()=>{
-        num++
-        observer.next(num)
-        if (num === 5) {
-          observer.complete
-          clearInterval(interval)
-        }
-        if (num === 2) {
-          num = 0
-          observer.error('Error')
-        }
-      },1000)
-    })
-
-    obs$.pipe(
+    this.returnObservable().pipe(
       retry(1)
     ).subscribe({
       next: value => console.log('Subs', value),
@@ -36,6 +19,24 @@ export class RxjsComponent {
       complete: () => console.log('Obs completed')
     })
 
+  }
+
+  returnObservable(): Observable<number> {
+    let num = -1
+    return new Observable<number>( observer => {
+      const interval = setInterval(()=>{
+        num++
+        observer.next(num)
+        if (num === 4) {
+          clearInterval(interval)
+          observer.complete()
+        }
+        if (num === 2) {
+          console.log('error', num);
+          observer.error('Error')
+        }
+      },1000)
+    })
   }
 
 }
