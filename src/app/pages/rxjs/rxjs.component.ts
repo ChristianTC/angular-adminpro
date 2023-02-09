@@ -31,7 +31,7 @@ export class RxjsComponent {
 
   returnInterval(): Observable<Number> {
     return interval(200).pipe(
-      // take(10),
+      take(1),
       map( value => value+1),
       filter( value => value%2===0),
     )
